@@ -6,7 +6,7 @@ on:
 name: Build Godot Project
 
 env:
-  GODOT_VERSION: 4.3
+  GODOT_VERSION: 4.4.1
   EXPORT_NAME: WorldWriters
   PROJECT_PATH: .
 
@@ -18,7 +18,7 @@ jobs:
       matrix:
         platform: [Linux Server, Linux Client, Windows Client,macOS Client]
     container:
-      image: barichello/godot-ci:4.3
+      image: barichello/godot-ci:4.4.1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
