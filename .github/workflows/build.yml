@@ -57,6 +57,8 @@ jobs:
           godot --headless --verbose --export-release "${{ matrix.platform }}" "$EXPORT_DIR/${{ matrix.platform }}/$EXPORT_FILE"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
+        env:
+          EXPORT_FILE: ${{ env.EXPORT_FILE }}
         with:
           name: ${{ matrix.platform }}
-          path: build/${{ matrix.platform }}/$EXPORT_FILE
+          path: build/${{ matrix.platform }}/${{ env.EXPORT_FILE }}
