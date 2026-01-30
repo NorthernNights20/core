@@ -51,7 +51,7 @@ jobs:
           EOF
       - name: ${{ matrix.platform }} Build
         run: |
-          mkdir -v -p build/${{ matrix.platform }}
+          mkdir -v -p "build/${{ matrix.platform }}"
           EXPORT_DIR="$(readlink -f build)"
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "${{ matrix.platform }}" "$EXPORT_DIR/${{ matrix.platform }}/$EXPORT_FILE"
