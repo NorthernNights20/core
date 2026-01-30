@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcfn5ww8ug4jk"
+path="res://.godot/imported/Ready to be a Vampire.mp3-d74b6caa006abd09fc7577f8e5b5a5d8.mp3str"
+
+[deps]
+
+source_file="res://sound/music/Ready to be a Vampire.mp3"
+dest_files=["res://.godot/imported/Ready to be a Vampire.mp3-d74b6caa006abd09fc7577f8e5b5a5d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

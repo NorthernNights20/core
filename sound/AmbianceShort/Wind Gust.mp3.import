@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bap7hmtu6acq0"
+path="res://.godot/imported/Wind Gust.mp3-3ade3c6e8e1a4a9c3fc80d5457526a31.mp3str"
+
+[deps]
+
+source_file="res://sound/AmbianceShort/Wind Gust.mp3"
+dest_files=["res://.godot/imported/Wind Gust.mp3-3ade3c6e8e1a4a9c3fc80d5457526a31.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

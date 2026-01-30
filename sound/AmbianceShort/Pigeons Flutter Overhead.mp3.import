@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cy2ca64rtpaf"
+path="res://.godot/imported/Pigeons Flutter Overhead.mp3-16572ee0941f4395a2538a54bdd77b9c.mp3str"
+
+[deps]
+
+source_file="res://sound/AmbianceShort/Pigeons Flutter Overhead.mp3"
+dest_files=["res://.godot/imported/Pigeons Flutter Overhead.mp3-16572ee0941f4395a2538a54bdd77b9c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

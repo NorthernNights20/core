@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c5h01s0uaqc3b"]
+
+[ext_resource type="StyleBox" uid="uid://dd54r8crho7bk" path="res://Image/UI/ButtonDown.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://pa418drenb4n" path="res://Image/UI/ButtonDownPressed.tres" id="2"]
+
+[resource]
+Button/styles/hover = ExtResource("1")
+Button/styles/normal = ExtResource("1")
+Button/styles/pressed = ExtResource("2")

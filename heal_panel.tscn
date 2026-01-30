@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkuxxdyoo3cy"]
+
+[ext_resource type="Script" uid="uid://wnc1sd4io2e" path="res://scripts/heal_panel.gd" id="1"]
+[ext_resource type="Theme" uid="uid://c8otso07yd5di" path="res://Image/UI/BloodButtonCompleted.tres" id="2"]
+
+[node name="HealPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.388125
+anchor_top = 0.465556
+anchor_right = 0.6125
+anchor_bottom = 0.522222
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Bash_Lethal" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("2")
+text = "Bash/Lethal"
+
+[node name="Aggravated" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("2")
+text = "Aggravated"
+
+[node name="Cancel" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("2")
+text = "Cancel"

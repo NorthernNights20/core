@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvw2ie1pu5uyl"
+path="res://.godot/imported/Montreal Urban.mp3-aed597d02a1b125e02ce77b3cee67abd.mp3str"
+
+[deps]
+
+source_file="res://sound/AmbianceLong/Montreal Urban.mp3"
+dest_files=["res://.godot/imported/Montreal Urban.mp3-aed597d02a1b125e02ce77b3cee67abd.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

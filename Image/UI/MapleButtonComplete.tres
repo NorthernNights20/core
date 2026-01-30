@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://3tb6bit6vroh"]
+
+[ext_resource type="StyleBox" uid="uid://d16bvrlgibkpm" path="res://Image/UI/MapleButtonOff.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://cihyw4ffdhh4k" path="res://Image/UI/MapleButtonOn.tres" id="2"]
+
+[resource]
+Button/styles/hover = ExtResource("1")
+Button/styles/hover_pressed = ExtResource("2")
+Button/styles/normal = ExtResource("1")
+Button/styles/pressed = ExtResource("2")

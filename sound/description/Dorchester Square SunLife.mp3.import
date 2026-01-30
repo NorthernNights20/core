@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqd7my0yxu758"
+path="res://.godot/imported/Dorchester Square SunLife.mp3-ba7c9fe7444f00d187b60b430f852b43.mp3str"
+
+[deps]
+
+source_file="res://sound/description/Dorchester Square SunLife.mp3"
+dest_files=["res://.godot/imported/Dorchester Square SunLife.mp3-ba7c9fe7444f00d187b60b430f852b43.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

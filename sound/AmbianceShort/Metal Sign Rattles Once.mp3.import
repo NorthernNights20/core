@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://o37hnahw8l48"
+path="res://.godot/imported/Metal Sign Rattles Once.mp3-6cb225b2c531e3d1d56ecd693988f11b.mp3str"
+
+[deps]
+
+source_file="res://sound/AmbianceShort/Metal Sign Rattles Once.mp3"
+dest_files=["res://.godot/imported/Metal Sign Rattles Once.mp3-6cb225b2c531e3d1d56ecd693988f11b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

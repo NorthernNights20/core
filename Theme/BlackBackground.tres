@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://yjaj0tsfykh7"]
+
+[ext_resource type="Texture2D" uid="uid://2ki0sudhw4ec" path="res://Image/UI/MapleLeafOff.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bmelhsx4v8kq8" path="res://Image/UI/MapleLeafOn.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bmcf7gpscu03w" path="res://Image/UI/BlackBackground.png" id="3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b7jhr"]
+bg_color = Color(0.397363, 0.0615697, 0.171308, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn4bh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w2msc"]
+texture = ExtResource("3")
+
+[resource]
+HSlider/icons/grabber = ExtResource("1")
+HSlider/icons/grabber_highlight = ExtResource("2")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_b7jhr")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_gn4bh")
+Panel/styles/panel = SubResource("StyleBoxTexture_w2msc")

@@ -1,0 +1,388 @@
+[gd_scene load_steps=41 format=3 uid="uid://bmk5qlcks4v3u"]
+
+[ext_resource type="Theme" uid="uid://d1j5mb6363ciy" path="res://Image/UI/CharacterCreationBox1Complete.tres" id="1"]
+[ext_resource type="Script" uid="uid://drwfitony6hbj" path="res://scripts/ui/main_ui.gd" id="2"]
+[ext_resource type="Theme" uid="uid://yjaj0tsfykh7" path="res://Theme/BlackBackground.tres" id="3"]
+[ext_resource type="Script" uid="uid://eiulmike27ng" path="res://scene/input_buttons.gd" id="4"]
+[ext_resource type="Theme" uid="uid://c8otso07yd5di" path="res://Image/UI/BloodButtonCompleted.tres" id="5"]
+[ext_resource type="Script" uid="uid://dumoka3feh6sp" path="res://scene/ActionPanel.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://83hcerwrjokr" path="res://Image/UI/NeighborSprite.png" id="7"]
+[ext_resource type="Theme" uid="uid://cw18ofpfnutf7" path="res://Image/UI/LeatherComplete.tres" id="8"]
+[ext_resource type="Texture2D" uid="uid://brtjn184fbtj5" path="res://Image/UI/CandleUnlit.png" id="9"]
+[ext_resource type="PackedScene" uid="uid://33yiuaybmux" path="res://scene/Zone.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bfwgwwfsgi7ko" path="res://scene/WordsInputPanel.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://d52y56d4b22e" path="res://scene/player_selection.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://bx3xnyrpoikl7" path="res://scene/location_selection.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://83lf4w57ss45" path="res://scene/DiceRollerUI.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://be7d7nwx3vahn" path="res://scene/create_character_ui.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://bdy36cmnjn1t3" path="res://scene/charactersheet_ui.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://cqo8gvrg53s8n" path="res://scene/st_virtue_tester.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://cbdeikjv0iw21" path="res://scene/character_sheet_editable_ui.tscn" id="18"]
+[ext_resource type="PackedScene" uid="uid://cohsughsaqjes" path="res://scene/AudioSettingsUI.tscn" id="19"]
+[ext_resource type="PackedScene" uid="uid://klpd80x0hp8m" path="res://scene/vaulderie_panel.tscn" id="20"]
+[ext_resource type="PackedScene" uid="uid://dyl1c5pdtwr0m" path="res://scene/vaulderie_panel_participant.tscn" id="21"]
+[ext_resource type="PackedScene" uid="uid://blprmvfe203hn" path="res://scene/VinculumMenu.tscn" id="22"]
+[ext_resource type="PackedScene" uid="uid://cqfmsafjq246d" path="res://scene/settings.tscn" id="23"]
+[ext_resource type="PackedScene" uid="uid://kwynv87cep3a" path="res://FileSelector.tscn" id="24"]
+[ext_resource type="PackedScene" uid="uid://b4y7tqiedndw7" path="res://CharacterDisplay.tscn" id="25"]
+[ext_resource type="PackedScene" uid="uid://eokeg84kum3j" path="res://VaulderieGroupingMenu.tscn" id="26"]
+[ext_resource type="PackedScene" uid="uid://kbtypy0l6hgd" path="res://GroupMenu.tscn" id="27"]
+[ext_resource type="PackedScene" uid="uid://pm1yal67diqi" path="res://GroupInvitation.tscn" id="28"]
+[ext_resource type="PackedScene" uid="uid://b0o8aed13w1oe" path="res://PostOrderST.tscn" id="29"]
+[ext_resource type="PackedScene" uid="uid://d2u3oarn5xk5f" path="res://PostOrderDisplay.tscn" id="30"]
+[ext_resource type="PackedScene" uid="uid://cmo4sm2qlrdwv" path="res://PostOrderSTControl.tscn" id="31"]
+[ext_resource type="PackedScene" uid="uid://cwcgrhghfxqn5" path="res://scene/nightly_activities_ui.tscn" id="32"]
+[ext_resource type="PackedScene" uid="uid://bkuxxdyoo3cy" path="res://heal_panel.tscn" id="33"]
+[ext_resource type="PackedScene" uid="uid://dlhwpdxs3m61f" path="res://scene/st_healing_panel.tscn" id="34"]
+[ext_resource type="PackedScene" uid="uid://bgp4ewl5emyro" path="res://scene/increase_physical_attributes_ui.tscn" id="35"]
+[ext_resource type="PackedScene" uid="uid://b64ocxclvxovw" path="res://bloodbondUI.tscn" id="36"]
+[ext_resource type="PackedScene" uid="uid://druqrs7nvpf1o" path="res://InventoryMenu.tscn" id="37"]
+[ext_resource type="PackedScene" uid="uid://d1q6u67o0oxm5" path="res://InventoryAcquireUI.tscn" id="38"]
+[ext_resource type="PackedScene" uid="uid://2dceiaqcjokq" path="res://scene/InventoryUI.tscn" id="39"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ml8dl"]
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_left = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3")
+metadata/_edit_use_anchors_ = true
+
+[node name="DisplayText" type="RichTextLabel" parent="TextPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = -7.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ml8dl")
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+
+[node name="InputButtons" type="HBoxContainer" parent="TextPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -53.0
+offset_right = -8.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("4")
+
+[node name="SpeakButton" type="Button" parent="TextPanel/InputButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5")
+text = "Speak"
+
+[node name="WhisperButton" type="Button" parent="TextPanel/InputButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5")
+text = "Whisper"
+
+[node name="EmoteButton" type="Button" parent="TextPanel/InputButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5")
+text = "Emote"
+
+[node name="OOCButton" type="Button" parent="TextPanel/InputButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5")
+text = "OOC"
+
+[node name="TellButton" type="Button" parent="TextPanel/InputButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5")
+text = "Tell"
+
+[node name="ActionPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 0.699375
+anchor_bottom = 0.606667
+offset_right = 481.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3")
+script = ExtResource("6")
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="ActionPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 6.10352e-05
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = ExtResource("5")
+current_tab = 0
+
+[node name="Location" type="Button" parent="ActionPanel/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5")
+metadata/_tab_index = 0
+
+[node name="Action" type="Button" parent="ActionPanel/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5")
+metadata/_tab_index = 1
+
+[node name="Character" type="Button" parent="ActionPanel/TabContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("5")
+metadata/_tab_index = 2
+
+[node name="Blood" type="Button" parent="ActionPanel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Settings" type="Button" parent="ActionPanel/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="ButtonsContainer" type="GridContainer" parent="ActionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 59.0
+offset_right = -6.99994
+offset_bottom = -6.99982
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5")
+columns = 3
+
+[node name="ZoneImagePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.362963
+anchor_right = 0.9
+anchor_bottom = 1.07407
+offset_left = 200.0
+offset_top = -26.6667
+offset_right = 160.0
+offset_bottom = -66.663
+theme = ExtResource("3")
+
+[node name="ViewpointImage" type="TextureRect" parent="ZoneImagePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="NeighIndicator" type="TextureRect" parent="ZoneImagePanel"]
+visible = false
+layout_mode = 0
+offset_left = 536.0
+offset_top = 514.0
+offset_right = 600.0
+offset_bottom = 596.0
+texture = ExtResource("7")
+
+[node name="Decoration1" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 300.0
+offset_right = 1000.0
+offset_bottom = 900.0
+theme = ExtResource("8")
+
+[node name="TypingIndicator" type="TextureRect" parent="Decoration1"]
+layout_mode = 0
+offset_top = 524.0
+offset_right = 40.0
+offset_bottom = 597.0
+texture = ExtResource("9")
+
+[node name="TypingTooltip" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+autowrap_mode = 2
+
+[node name="Decoration2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 960.0
+offset_top = 31.0
+offset_right = 1600.0
+offset_bottom = 48.0
+theme = ExtResource("8")
+
+[node name="Zone" parent="." instance=ExtResource("10")]
+
+[node name="WordsInputPanel" parent="." instance=ExtResource("11")]
+visible = false
+layout_mode = 1
+
+[node name="PlayerSelection" parent="." instance=ExtResource("12")]
+visible = false
+layout_mode = 1
+
+[node name="LocationSelection" parent="." instance=ExtResource("13")]
+visible = false
+layout_mode = 1
+
+[node name="DiceRollerUI" parent="." instance=ExtResource("14")]
+visible = false
+layout_mode = 1
+
+[node name="CreateCharacterUI" parent="." instance=ExtResource("15")]
+visible = false
+layout_mode = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 15.0
+
+[node name="CharacterSheetUI" parent="." instance=ExtResource("16")]
+visible = false
+layout_mode = 1
+
+[node name="STVirtueTester" parent="." instance=ExtResource("17")]
+visible = false
+layout_mode = 1
+
+[node name="CharacterSheetEditableUI" parent="." instance=ExtResource("18")]
+visible = false
+layout_mode = 1
+
+[node name="AudioSettingsUI" parent="." instance=ExtResource("19")]
+visible = false
+layout_mode = 1
+
+[node name="VaulderiePanel" parent="." instance=ExtResource("20")]
+visible = false
+layout_mode = 1
+
+[node name="VaulderiePanelParticipant" parent="." instance=ExtResource("21")]
+visible = false
+layout_mode = 1
+
+[node name="VinculumMenu" parent="." instance=ExtResource("22")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="." instance=ExtResource("23")]
+visible = false
+layout_mode = 1
+
+[node name="FileSelector" parent="." instance=ExtResource("24")]
+visible = false
+layout_mode = 1
+
+[node name="CharacterDisplay" parent="." instance=ExtResource("25")]
+visible = false
+layout_mode = 1
+
+[node name="VaulderieGroupingMenu" parent="." instance=ExtResource("26")]
+visible = false
+layout_mode = 1
+
+[node name="GroupMenu" parent="." instance=ExtResource("27")]
+visible = false
+layout_mode = 1
+
+[node name="GroupInvitation" parent="." instance=ExtResource("28")]
+visible = false
+layout_mode = 1
+
+[node name="PostOrderST" parent="." instance=ExtResource("29")]
+visible = false
+layout_mode = 1
+offset_left = 550.0
+offset_top = 200.0
+offset_right = 550.0
+offset_bottom = 200.0
+
+[node name="PostOrderDisplay" parent="." instance=ExtResource("30")]
+visible = false
+layout_mode = 1
+offset_top = -60.0
+offset_bottom = -60.0
+
+[node name="PostOrderSTControl" parent="." instance=ExtResource("31")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.955625
+anchor_top = 0.406667
+anchor_right = 0.955625
+anchor_bottom = 0.406667
+metadata/_edit_use_anchors_ = true
+
+[node name="NightlyActivitiesUI" parent="." instance=ExtResource("32")]
+visible = false
+layout_mode = 1
+
+[node name="HealPanel" parent="." instance=ExtResource("33")]
+visible = false
+layout_mode = 1
+
+[node name="STHealingPanel" parent="." instance=ExtResource("34")]
+visible = false
+layout_mode = 1
+
+[node name="IncreasePhysicalAttributesUI" parent="." instance=ExtResource("35")]
+visible = false
+layout_mode = 1
+
+[node name="bloodbondUI" parent="." instance=ExtResource("36")]
+visible = false
+layout_mode = 1
+
+[node name="InventoryMenu" parent="." instance=ExtResource("37")]
+visible = false
+layout_mode = 1
+
+[node name="InventoryAcquireUI" parent="." instance=ExtResource("38")]
+visible = false
+layout_mode = 1
+
+[node name="InventoryUI" parent="." instance=ExtResource("39")]
+visible = false
+layout_mode = 1

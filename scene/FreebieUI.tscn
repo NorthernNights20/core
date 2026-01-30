@@ -1,0 +1,5215 @@
+[gd_scene load_steps=14 format=3 uid="uid://8s3qsbkvv2pd"]
+
+[ext_resource type="Script" uid="uid://dbnpkl444eueb" path="res://scripts/ui/FreebieUI.gd" id="1"]
+[ext_resource type="StyleBox" uid="uid://bauxa46tw54ib" path="res://Image/UI/BackgroundCharacterCreation2.tres" id="2"]
+[ext_resource type="Theme" uid="uid://d1j5mb6363ciy" path="res://Image/UI/CharacterCreationBox1Complete.tres" id="3"]
+[ext_resource type="Theme" uid="uid://1a6edw4xe1vt" path="res://main_ui.tres" id="4"]
+[ext_resource type="FontFile" uid="uid://dukhvv8ej223i" path="res://IMFellEnglishSC-Regular.ttf" id="5"]
+[ext_resource type="Theme" uid="uid://cgkfk8bfuen5" path="res://Image/UI/BorderUICCComplete.tres" id="6"]
+[ext_resource type="Theme" uid="uid://cweds3dwi6kx5" path="res://Image/UI/ButtonUpComplete.tres" id="7"]
+[ext_resource type="Theme" uid="uid://c5h01s0uaqc3b" path="res://Image/UI/ButtonDownComplete.tres" id="8"]
+[ext_resource type="Theme" uid="uid://cxl67cv2qtlng" path="res://Image/UI/ButtonRightComplete.tres" id="9"]
+[ext_resource type="PackedScene" uid="uid://dm8c0xykpxbdh" path="res://scene/charactercreationselection.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://b7lsunfj11ivm" path="res://character_creation_words_input.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://c1gh7uadaw4mb" path="res://thaumaturgy_path_levels.tscn" id="12"]
+
+[sub_resource type="Theme" id="Theme_36i0x"]
+Panel/styles/panel = ExtResource("2")
+
+[node name="FreebieUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_36i0x")
+
+[node name="CharacterInformation" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 19.0
+offset_right = 272.0
+offset_bottom = 175.0
+theme = ExtResource("3")
+
+[node name="CharacterInformationPresentation" type="VBoxContainer" parent="Background/CharacterInformation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 10.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.95, 0.95)
+theme = ExtResource("4")
+
+[node name="NameContainer" type="HBoxContainer" parent="Background/CharacterInformation/CharacterInformationPresentation"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/NameContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Name:  "
+
+[node name="NameEdit" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/NameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+
+[node name="SectContainer" type="HBoxContainer" parent="Background/CharacterInformation/CharacterInformationPresentation"]
+layout_mode = 2
+
+[node name="SectLabel" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/SectContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Sect:  "
+
+[node name="SectEdit" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/SectContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+
+[node name="ClanContainer" type="HBoxContainer" parent="Background/CharacterInformation/CharacterInformationPresentation"]
+layout_mode = 2
+
+[node name="ClanLabel" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/ClanContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Clan:  "
+
+[node name="ClanEdit" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/ClanContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+
+[node name="NatureContainer" type="HBoxContainer" parent="Background/CharacterInformation/CharacterInformationPresentation"]
+layout_mode = 2
+
+[node name="NatureLabel" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/NatureContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Nature:  "
+
+[node name="NatureEdit" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/NatureContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+
+[node name="DemeanorContainer" type="HBoxContainer" parent="Background/CharacterInformation/CharacterInformationPresentation"]
+layout_mode = 2
+
+[node name="NatureLabel" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/DemeanorContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Demeanor:  "
+
+[node name="DemeanorEdit" type="Label" parent="Background/CharacterInformation/CharacterInformationPresentation/DemeanorContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+
+[node name="FreebiePointsBox" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 83.0
+offset_right = 404.0
+offset_bottom = 150.0
+theme = ExtResource("3")
+
+[node name="FreebiePointsCounter" type="Label" parent="Background/FreebiePointsBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+
+[node name="Merit_FlawPanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 25.0
+offset_right = 1263.0
+offset_bottom = 403.0
+theme = ExtResource("3")
+
+[node name="Merit_FlawContainer" type="VBoxContainer" parent="Background/Merit_FlawPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.37
+offset_bottom = 2.37
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+
+[node name="MeritPanel" type="Panel" parent="Background/Merit_FlawPanel/Merit_FlawContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MeritContainer" type="VBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = -9.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Merit1Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer"]
+layout_mode = 2
+
+[node name="MeritType1" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="MeritType1Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit1" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Merit"
+
+[node name="Merit1Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit2Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer"]
+layout_mode = 2
+
+[node name="MeritType2" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="MeritType2Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit2" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Merit"
+
+[node name="Merit2Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit3Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer"]
+layout_mode = 2
+
+[node name="MeritType3" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="MeritType3Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit3" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Merit"
+
+[node name="Merit3Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit4Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer"]
+layout_mode = 2
+
+[node name="MeritType4" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="MeritType4Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit4" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Merit"
+
+[node name="Merit4Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit5Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer"]
+layout_mode = 2
+
+[node name="MeritType5" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="MeritType5Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Merit5" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Merit"
+
+[node name="Merit5Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/MeritPanel/MeritContainer/Merit5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="FlawPanel" type="Panel" parent="Background/Merit_FlawPanel/Merit_FlawContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FlawContainer" type="VBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 15.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Flaw1Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer"]
+layout_mode = 2
+
+[node name="FlawType1" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="FlawType1Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw1" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Flaw"
+
+[node name="Flaw1Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw1Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw2Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer"]
+layout_mode = 2
+
+[node name="FlawType2" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="FlawType2Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw2" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Flaw"
+
+[node name="Flaw2Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw2Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw3Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer"]
+layout_mode = 2
+
+[node name="FlawType3" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="FlawType3Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw3" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Flaw"
+
+[node name="Flaw3Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw3Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw4Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer"]
+layout_mode = 2
+
+[node name="FlawType4" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="FlawType4Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw4" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Flaw"
+
+[node name="Flaw4Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw4Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw5Container" type="HBoxContainer" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer"]
+layout_mode = 2
+
+[node name="FlawType5" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = " Type"
+
+[node name="FlawType5Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="Flaw5" type="Label" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+text = "Flaw"
+
+[node name="Flaw5Option" type="OptionButton" parent="Background/Merit_FlawPanel/Merit_FlawContainer/FlawPanel/FlawContainer/Flaw5Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 14
+
+[node name="AttributePanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 447.0
+offset_right = 566.0
+offset_bottom = 829.0
+theme = ExtResource("3")
+
+[node name="AttributeLabel" type="Label" parent="Background/AttributePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_right = 39.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 30
+text = "Attributes"
+
+[node name="AttributeListing" type="VBoxContainer" parent="Background/AttributePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+
+[node name="PhysicalPanel" type="Panel" parent="Background/AttributePanel/AttributeListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PhysicalLabel" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 30
+text = "Physical"
+
+[node name="PhysicalAttributes" type="HBoxContainer" parent="Background/AttributePanel/AttributeListing/PhysicalPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -10.0
+offset_right = -8.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Strength" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Strength"
+
+[node name="StrengthPanel" type="Panel" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StrengthNumber" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StrengthPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StrengthPanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StrengthAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StrengthPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StrengthButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StrengthIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StrengthButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="StrengthDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StrengthButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Dexterity" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Dexterity"
+
+[node name="DexterityPanel" type="Panel" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DexterityNumber" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/DexterityPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="DexterityPanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DexterityAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/DexterityPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="DexterityButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DexterityIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/DexterityButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="DexterityDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/DexterityButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Stamina" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Stamina"
+
+[node name="StaminaPanel" type="Panel" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StaminaNumber" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StaminaPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StaminaPanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StaminaAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StaminaPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StaminaButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StaminaIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StaminaButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="StaminaDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/PhysicalPanel/PhysicalAttributes/StaminaButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="SocialPanel" type="Panel" parent="Background/AttributePanel/AttributeListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SocialLabel" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.5
+offset_top = 6.0
+offset_right = 40.5
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 30
+text = "Social"
+
+[node name="SocialAttributes" type="HBoxContainer" parent="Background/AttributePanel/AttributeListing/SocialPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -10.0
+offset_right = -7.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Charisma" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Charisma"
+
+[node name="CharismaPanel" type="Panel" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharismaNumber" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/CharismaPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="CharismaPanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharismaAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/CharismaPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="CharismaButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharismaIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/CharismaButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="CharismaDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/CharismaButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Manipulation" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Manipulation"
+
+[node name="ManipulationPanel" type="Panel" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ManipulationNumber" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/ManipulationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ManipulationPanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ManipulationAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/ManipulationPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ManipulationButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ManipulationIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/ManipulationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="ManipulationDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/ManipulationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Appearance" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Appearance"
+
+[node name="AppearancePanel" type="Panel" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AppearanceNumber" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/AppearancePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AppearancePanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AppearanceAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/AppearancePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AppearanceButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AppearanceIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/AppearanceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="AppearanceDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/SocialPanel/SocialAttributes/AppearanceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="MentalPanel" type="Panel" parent="Background/AttributePanel/AttributeListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MentalLabel" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -49.5
+offset_top = 5.0
+offset_right = 50.5
+offset_bottom = 44.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 30
+text = "Mental"
+
+[node name="MentalAttributes" type="HBoxContainer" parent="Background/AttributePanel/AttributeListing/MentalPanel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -10.0
+offset_right = -7.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Perception" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Perception"
+
+[node name="PerceptionPanel" type="Panel" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerceptionNumber" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/PerceptionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PerceptionPanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerceptionAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/PerceptionPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PerceptionButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PerceptionIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/PerceptionButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="PerceptionDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/PerceptionButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Intelligence" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Intelligence"
+
+[node name="IntelligencePanel" type="Panel" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IntelligenceNumber" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/IntelligencePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="IntelligencePanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IntelligenceAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/IntelligencePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="IntelligenceButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IntelligenceIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/IntelligenceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="IntelligenceDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/IntelligenceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Wits" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Wits"
+
+[node name="WitsPanel" type="Panel" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WitsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/WitsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="WitsPanelAdds" type="Panel" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WitsAddsNumber" type="Label" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/WitsPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="WitsButtonsContainer" type="VBoxContainer" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WitsIncrease" type="Button" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/WitsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="WitsDecrease" type="Button" parent="Background/AttributePanel/AttributeListing/MentalPanel/MentalAttributes/WitsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="AbilityPanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 414.0
+offset_right = 1264.0
+offset_bottom = 883.0
+theme = ExtResource("3")
+
+[node name="AbilityLabel" type="Label" parent="Background/AbilityPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.5
+offset_right = 24.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 35
+text = "Ability"
+
+[node name="AbilityListing" type="HBoxContainer" parent="Background/AbilityPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+
+[node name="TalentsPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TalentsLabel" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 25
+text = "Talents"
+
+[node name="TalentsAbilities" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 26.0
+offset_right = -8.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AlertnessContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Alertness" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Alertness    "
+
+[node name="AlertnessPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AlertnessNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer/AlertnessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AlertnessPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AlertnessAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer/AlertnessPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AlertnessButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.82
+
+[node name="AlertnessIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer/AlertnessButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="AlertnessDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AlertnessContainer/AlertnessButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="AthleticsContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Athletics" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Athletics   "
+
+[node name="AthleticsPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AthleticsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer/AthleticsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AthleticsPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AthleticsAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer/AthleticsPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AthleticsButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.82
+
+[node name="AthleticsIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer/AthleticsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="AthleticsDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AthleticsContainer/AthleticsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="AwarenessContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Awareness" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Awareness    "
+
+[node name="AwarenessPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AwarenessNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer/AwarenessPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AwarenessPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="AwarenessAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer/AwarenessPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AwarenessButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="AwarenessIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer/AwarenessButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="AwarenessDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/AwarenessContainer/AwarenessButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="BrawlContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Brawl" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Brawl            "
+
+[node name="BrawlPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="BrawlNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer/BrawlPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="BrawlPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="BrawlAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer/BrawlPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="BrawlButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.35
+
+[node name="BrawlIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer/BrawlButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="BrawlDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/BrawlContainer/BrawlButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="EmpathyContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Empathy" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Empathy       "
+
+[node name="EmpathyPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmpathyNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer/EmpathyPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="EmpathyPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmpathyAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer/EmpathyPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="EmpathyButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.22
+
+[node name="EmpathyIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer/EmpathyButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="EmpathyDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/EmpathyContainer/EmpathyButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="ExpressionContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Expression" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 15
+text = "Expression      "
+
+[node name="ExpressionPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExpressionNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer/ExpressionPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ExpressionPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ExpressionAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer/ExpressionPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ExpressionButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.45
+
+[node name="ExpressionIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer/ExpressionButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="ExpressionDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/ExpressionContainer/ExpressionButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="IntimidationContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Intimidation" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Intimidation"
+
+[node name="IntimidationPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IntimidationNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer/IntimidationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="IntimidationPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IntimidationAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer/IntimidationPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="IntimidationButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.35
+
+[node name="IntimidationIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer/IntimidationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="IntimidationDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/IntimidationContainer/IntimidationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="LeadershipContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Leadership" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Leadership   "
+
+[node name="LeadershipsPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeadershipNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer/LeadershipsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="LeadershipPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeadershipAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer/LeadershipPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="LeadershipButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeadershipIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer/LeadershipButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="LeadershipDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/LeadershipContainer/LeadershipButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="StreetwiseContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Streetwise" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Streetwise   "
+
+[node name="StreetwisePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StreetwiseNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer/StreetwisePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StreetwisePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StreetwiseAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer/StreetwisePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StreetwiseButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StreetwiseIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer/StreetwiseButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="StreetwiseDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/StreetwiseContainer/StreetwiseButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="SubterfugeContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Subterfuge" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Subterfuge   "
+
+[node name="SubterfugePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubterfugeNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer/SubterfugePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="SubterfugePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubterfugeAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer/SubterfugePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="SubterfugeButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubterfugeIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer/SubterfugeButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="SubterfugeDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/TalentsPanel/TalentsAbilities/SubterfugeContainer/SubterfugeButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="SkillsPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SkillsLabel" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.5
+offset_right = 31.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 25
+text = "Skills"
+
+[node name="SkillsAbilities" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 27.0
+offset_right = -4.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimalKenContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AnimalKen" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Animal Ken  "
+
+[node name="AnimalKenPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimalKenNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer/AnimalKenPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AnimalKenPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimalKenAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer/AnimalKenPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AnimalKenButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimalKenIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer/AnimalKenButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="AnimalKenDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/AnimalKenContainer/AnimalKenButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="CraftContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Craft" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Craft              "
+
+[node name="CraftPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CraftNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer/CraftPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="CraftPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CraftAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer/CraftPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="CraftButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CraftIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer/CraftButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="CraftDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/CraftContainer/CraftButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="DriveContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Drive" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Drive              "
+
+[node name="DrivePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DriveNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer/DrivePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="DrivePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DriveAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer/DrivePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="DriveButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DriveIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer/DriveButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="DriveDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/DriveContainer/DriveButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="EtiquetteContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Etiquette" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Etiquette     "
+
+[node name="EtiquettePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EtiquetteNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer/EtiquettePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="EtiquettePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EtiquetteAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer/EtiquettePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="EtiquetteButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EtiquetteIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer/EtiquetteButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="EtiquetteDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/EtiquetteContainer/EtiquetteButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="FirearmsContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Firearms" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Firearms        "
+
+[node name="FirearmsPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FirearmsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer/FirearmsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="FirearmsPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FirearmsAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer/FirearmsPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="FirearmsButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FirearmsIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer/FirearmsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="FirearmsDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/FirearmsContainer/FirearmsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="LarcenyContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Larceny" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Larceny         "
+
+[node name="LarcenylPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LarcenyNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer/LarcenylPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="LarcenyPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LarcenyAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer/LarcenyPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="LarcenyButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LarcenyIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer/LarcenyButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="LarcenyDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/LarcenyContainer/LarcenyButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="MeleeContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Melee" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Melee             "
+
+[node name="MeleePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MeleeNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer/MeleePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="MeleePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MeleeAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer/MeleePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="MeleeButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MeleeIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer/MeleeButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="MeleeDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/MeleeContainer/MeleeButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="PerformanceContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Performance" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Performance"
+
+[node name="PerformancePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.93
+
+[node name="PerformanceNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer/PerformancePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PerformancePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.93
+
+[node name="PerformanceAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer/PerformancePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PerformanceButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.93
+
+[node name="PerformanceIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer/PerformanceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="PerformanceDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/PerformanceContainer/PerformanceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="StealthContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Stealth" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Stealth          "
+
+[node name="StealthPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StealthNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer/StealthPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StealthPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StealthAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer/StealthPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StealthButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StealthIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer/StealthButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="StealthDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/StealthContainer/StealthButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="SurvivalContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Survival" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Survival          "
+
+[node name="SurvivalPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SurvivalNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer/SurvivalPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="SurvivalPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SurvivalAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer/SurvivalPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="SurvivalButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SurvivalIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer/SurvivalButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="SurvivalDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/SkillsPanel/SkillsAbilities/SurvivalContainer/SurvivalButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="KnowledgesPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="KnowledgesLabel" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 46.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 25
+text = "Knowledges"
+
+[node name="KnowledgesAbilities" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 26.0
+offset_right = -4.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AcademicsContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Academics" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Academics   "
+
+[node name="AcademicsPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AcademicsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer/AcademicsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AcademicsPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AcademicsAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer/AcademicsPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AcademicsButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AcademicsIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer/AcademicsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="AcademicsDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/AcademicsContainer/AcademicsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="ComputerContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Computer" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Computer   "
+
+[node name="ComputerlPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ComputerNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer/ComputerlPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ComputerPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ComputerAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer/ComputerPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ComputerButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ComputerIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer/ComputerButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="ComputerDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ComputerContainer/ComputerButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="FinanceContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Finance" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Finance        "
+
+[node name="FinancePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FinanceNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer/FinancePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="FinancePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FinanceAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer/FinancePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="FinanceButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FinanceIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer/FinanceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="FinanceDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/FinanceContainer/FinanceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="InvestigationContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Investigation" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Investigation"
+
+[node name="InvestigationPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InvestigationNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer/InvestigationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="InvestigationPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InvestigationAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer/InvestigationPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="InvestigationButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.35
+
+[node name="InvestigationIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer/InvestigationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="InvestigationDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/InvestigationContainer/InvestigationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="LawContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Law" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Law               "
+
+[node name="LawPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LawNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer/LawPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="LawPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LawAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer/LawPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="LawButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LawIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer/LawButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="LawDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/LawContainer/LawButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="MedicineContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Medicine" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Medicine     "
+
+[node name="MedicinePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MedicineNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer/MedicinePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="MedicinePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MedicineAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer/MedicinePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="MedicineButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MedicineIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer/MedicineButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="MedicineDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/MedicineContainer/MedicineButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="OccultContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Occult" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Occult        "
+
+[node name="OccultPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccultNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer/OccultPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="OccultPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccultAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer/OccultPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="OccultButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OccultIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer/OccultButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="OccultDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/OccultContainer/OccultButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="PoliticsContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Politics" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Politics        "
+
+[node name="PoliticsPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PoliticsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer/PoliticsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PoliticsPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PoliticsAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer/PoliticsPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PoliticsButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PoliticsIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer/PoliticsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="PoliticsDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/PoliticsContainer/PoliticsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="ScienceContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Science" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Science        "
+
+[node name="SciencePanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScienceNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer/SciencePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="SciencePanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScienceAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer/SciencePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ScienceButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScienceIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer/ScienceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="ScienceDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/ScienceContainer/ScienceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="TechnologyContainer" type="HBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Technology" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = "Technology"
+
+[node name="TechnologyPanel" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TechnologyNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer/TechnologyPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="TechnologyPanelAdds" type="Panel" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TechnologyAddsNumber" type="Label" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer/TechnologyPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="TechnologyButtonsContainer" type="VBoxContainer" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TechnologyIncrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer/TechnologyButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="TechnologyDecrease" type="Button" parent="Background/AbilityPanel/AbilityListing/KnowledgesPanel/KnowledgesAbilities/TechnologyContainer/TechnologyButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="BackgroundPanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 1288.0
+offset_top = 32.0
+offset_right = 1599.0
+offset_bottom = 881.0
+theme = ExtResource("3")
+
+[node name="BackgroundLabel" type="Label" parent="Background/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.5
+offset_right = 46.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 25
+text = "Background"
+
+[node name="BackgroundListing" type="VBoxContainer" parent="Background/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 31.0
+offset_right = -7.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+
+[node name="AlliesContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Allies" type="Label" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Allies"
+
+[node name="AlliesPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="AlliesNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer/AlliesPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AlliesPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="AlliesAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer/AlliesPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="AlliesButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AlliesIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer/AlliesButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="AlliesDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/AlliesContainer/AlliesButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="ContactsContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Contacts" type="Label" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Contacts"
+
+[node name="ContactsPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="ContactsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer/ContactsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ContactsPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="ContactsAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer/ContactsPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ContactsButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContactsIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer/ContactsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="ContactsDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/ContactsContainer/ContactsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="DomainContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Domain" type="Label" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Domain"
+
+[node name="DomainPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="DomainNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer/DomainPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="DomainPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="DomainAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer/DomainPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="DomainButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DomainIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer/DomainButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="DomainDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/DomainContainer/DomainButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="FameContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Fame" type="Label" parent="Background/BackgroundPanel/BackgroundListing/FameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Fame"
+
+[node name="FamePanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/FameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="FameNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/FameContainer/FamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="FamePanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/FameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="FameAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/FameContainer/FamePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="FameButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/FameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FameIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/FameContainer/FameButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="FameDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/FameContainer/FameButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="GenerationContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Generation" type="Label" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Generation"
+
+[node name="GenerationPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="GenerationNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer/GenerationPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="GenerationPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="GenerationAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer/GenerationPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="GenerationButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GenerationIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer/GenerationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="GenerationDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/GenerationContainer/GenerationButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="HavenContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Haven" type="Label" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Haven"
+
+[node name="HavenPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HavenNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer/HavenPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="HavenPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HavenAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer/HavenPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="HavenButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HavenIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer/HavenButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="HavenDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/HavenContainer/HavenButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="HerdContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Herd" type="Label" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Herd"
+
+[node name="HerdPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HerdNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer/HerdPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="HerdPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HerdAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer/HerdPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="HerdButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HerdIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer/HerdButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="HerdDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/HerdContainer/HerdButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="InfluenceContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Influence" type="Label" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Influence"
+
+[node name="InfluencePanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="InfluenceNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer/InfluencePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="InfluencePanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="InfluenceAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer/InfluencePanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="InfluenceButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InfluenceIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer/InfluenceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="InfluenceDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/InfluenceContainer/InfluenceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="MentorContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Mentor" type="Label" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Mentor"
+
+[node name="MentorPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="MentorNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer/MentorPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="MentorPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="MentorAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer/MentorPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="MentorButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MentorIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer/MentorButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="MentorDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/MentorContainer/MentorButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="ResourcesContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Resources" type="Label" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Resources"
+
+[node name="ResourcesPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="ResourcesNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer/ResourcesPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ResourcesPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="ResourcesAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer/ResourcesPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ResourcesButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResourcesIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer/ResourcesButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="ResourcesDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/ResourcesContainer/ResourcesButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="RetainersContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Retainers" type="Label" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Retainers"
+
+[node name="RetainersPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RetainersNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer/RetainersPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="RetainersPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RetainersAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer/RetainersPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="RetainersButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RetainersIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer/RetainersButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="RetainersDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/RetainersContainer/RetainersButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="RitualsContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rituals" type="Label" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Rituals"
+
+[node name="RitualsPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RitualsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer/RitualsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="RitualsPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="RitualsAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer/RitualsPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="RitualsButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RitualsIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer/RitualsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="RitualsDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/RitualsContainer/RitualsButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="StatusContainer" type="HBoxContainer" parent="Background/BackgroundPanel/BackgroundListing"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Status" type="Label" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 20
+text = "Status"
+
+[node name="StatusPanel" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="StatusNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer/StatusPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StatusPanelAdds" type="Panel" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="StatusAddsNumber" type="Label" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer/StatusPanelAdds"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="StatusButtonsContainer" type="VBoxContainer" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusIncrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer/StatusButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="StatusDecrease" type="Button" parent="Background/BackgroundPanel/BackgroundListing/StatusContainer/StatusButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="DisciplinePanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 219.0
+offset_right = 239.0
+offset_bottom = 414.0
+theme = ExtResource("3")
+
+[node name="Discipline" type="Label" parent="Background/DisciplinePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -37.5
+offset_right = 37.5
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 25
+text = "Discipline"
+
+[node name="DisciplineContainer" type="VBoxContainer" parent="Background/DisciplinePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 36.0
+offset_right = -4.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+
+[node name="Discipline1" type="HBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Discipline1" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline1NumberPanel" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline1Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1/Discipline1NumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline1NumberPanel2" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline1Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1/Discipline1NumberPanel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline1ButtonsContainer" type="VBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline1Increase" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1/Discipline1ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="Discipline1Decrease" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline1/Discipline1ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Discipline2" type="HBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Discipline2" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline2NumberPanel" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline2Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2/Discipline2NumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline2NumberPanel2" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline2Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2/Discipline2NumberPanel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline2ButtonsContainer" type="VBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline2Increase" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2/Discipline2ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="Discipline2Decrease" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline2/Discipline2ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Discipline3" type="HBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Discipline3" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline3NumberPanel" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline3Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3/Discipline3NumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline3NumberPanel2" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline3Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3/Discipline3NumberPanel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline3ButtonsContainer" type="VBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline3Increase" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3/Discipline3ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="Discipline3Decrease" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline3/Discipline3ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Discipline4" type="HBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Discipline4" type="OptionButton" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline4NumberPanel" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline4Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4/Discipline4NumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline4NumberPanel2" type="Panel" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline4Number" type="Label" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4/Discipline4NumberPanel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="Discipline4ButtonsContainer" type="VBoxContainer" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Discipline4Increase" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4/Discipline4ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="Discipline4Decrease" type="Button" parent="Background/DisciplinePanel/DisciplineContainer/Discipline4/Discipline4ButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="VirtuePanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 178.0
+offset_right = 455.0
+offset_bottom = 397.0
+theme = ExtResource("3")
+
+[node name="Virtue" type="Label" parent="Background/VirtuePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -24.0
+offset_right = 24.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+theme_override_font_sizes/font_size = 22
+text = "Virtue"
+
+[node name="VirtueContainer" type="VBoxContainer" parent="Background/VirtuePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 29.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6")
+
+[node name="Conscience" type="HBoxContainer" parent="Background/VirtuePanel/VirtueContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Conscience" type="Label" parent="Background/VirtuePanel/VirtueContainer/Conscience"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = " Conscience"
+
+[node name="ConscienceNumberPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Conscience"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConscienceNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Conscience/ConscienceNumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ConscienceNumberAddPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Conscience"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConscienceAddsNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Conscience/ConscienceNumberAddPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="ConscienceButtonsContainer" type="VBoxContainer" parent="Background/VirtuePanel/VirtueContainer/Conscience"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConscienceIncrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Conscience/ConscienceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="ConscienceDecrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Conscience/ConscienceButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="SelfControl" type="HBoxContainer" parent="Background/VirtuePanel/VirtueContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelfControl" type="Label" parent="Background/VirtuePanel/VirtueContainer/SelfControl"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = " Self Control "
+
+[node name="SelfControlNumberPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/SelfControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelfControlNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/SelfControl/SelfControlNumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="SelfControlNumberAddPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/SelfControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelfControlAddsNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/SelfControl/SelfControlNumberAddPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="SelfControlButtonsContainer" type="VBoxContainer" parent="Background/VirtuePanel/VirtueContainer/SelfControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelfControlIncrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/SelfControl/SelfControlButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="SelfControlDecrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/SelfControl/SelfControlButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Courage" type="HBoxContainer" parent="Background/VirtuePanel/VirtueContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Courage" type="Label" parent="Background/VirtuePanel/VirtueContainer/Courage"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = " Courage           "
+
+[node name="CourageNumberPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Courage"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CourageNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Courage/CourageNumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="CourageNumberAddPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Courage"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CourageAddsNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Courage/CourageNumberAddPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="CourageButtonsContainer" type="VBoxContainer" parent="Background/VirtuePanel/VirtueContainer/Courage"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CourageIncrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Courage/CourageButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="CourageDecrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Courage/CourageButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Path" type="HBoxContainer" parent="Background/VirtuePanel/VirtueContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Path" type="Label" parent="Background/VirtuePanel/VirtueContainer/Path"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = " Path                  "
+
+[node name="PathNumberPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Path"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PathNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Path/PathNumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PathNumberAddPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Path"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PathAddsNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Path/PathNumberAddPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="PathButtonsContainer" type="VBoxContainer" parent="Background/VirtuePanel/VirtueContainer/Path"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PathIncrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Path/PathButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="PathDecrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Path/PathButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="Willpower" type="HBoxContainer" parent="Background/VirtuePanel/VirtueContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Willpower" type="Label" parent="Background/VirtuePanel/VirtueContainer/Willpower"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = " Willpower      "
+
+[node name="WillpowerNumberPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Willpower"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WillpowerNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Willpower/WillpowerNumberPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="WillpowerNumberAddPanel" type="Panel" parent="Background/VirtuePanel/VirtueContainer/Willpower"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WillpowerAddsNumber" type="Label" parent="Background/VirtuePanel/VirtueContainer/Willpower/WillpowerNumberAddPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="WillpowerButtonsContainer" type="VBoxContainer" parent="Background/VirtuePanel/VirtueContainer/Willpower"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WillpowerIncrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Willpower/WillpowerButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("7")
+
+[node name="WillpowerDecrease" type="Button" parent="Background/VirtuePanel/VirtueContainer/Willpower/WillpowerButtonsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("8")
+
+[node name="BACK" type="Button" parent="Background"]
+visible = false
+layout_mode = 0
+offset_left = 19.0
+offset_top = 840.0
+offset_right = 59.0
+offset_bottom = 880.0
+theme = ExtResource("6")
+
+[node name="GenerationPanel" type="Panel" parent="Background"]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 23.0
+offset_right = 434.0
+offset_bottom = 63.0
+theme = ExtResource("3")
+
+[node name="GenerationContainer" type="HBoxContainer" parent="Background/GenerationPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Generation" type="Label" parent="Background/GenerationPanel/GenerationContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+text = " Generation"
+
+[node name="GenerationNumber" type="Label" parent="Background/GenerationPanel/GenerationContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5")
+
+[node name="COMPLETE" type="Button" parent="Background"]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 842.0
+offset_right = 564.0
+offset_bottom = 882.0
+theme = ExtResource("9")
+
+[node name="Charactercreationselection" parent="." instance=ExtResource("10")]
+visible = false
+layout_mode = 1
+theme = ExtResource("3")
+
+[node name="CharacterCreationWordsInput" parent="." instance=ExtResource("11")]
+visible = false
+layout_mode = 1
+
+[node name="ThaumaturgyPathLevels" parent="." instance=ExtResource("12")]
+visible = false
+layout_mode = 1

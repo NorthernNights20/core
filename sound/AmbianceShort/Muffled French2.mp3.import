@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmkdqi1ncojdo"
+path="res://.godot/imported/Muffled French2.mp3-9849aab0e914f605c321d7e3e2045dfd.mp3str"
+
+[deps]
+
+source_file="res://sound/AmbianceShort/Muffled French2.mp3"
+dest_files=["res://.godot/imported/Muffled French2.mp3-9849aab0e914f605c321d7e3e2045dfd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

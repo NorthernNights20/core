@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://1a6edw4xe1vt"]
+
+[ext_resource type="StyleBox" uid="uid://duaelrs3080xk" path="res://buttonsnormal.tres" id="1"]
+[ext_resource type="StyleBox" uid="uid://doue1w88kt6tv" path="res://buttonactivated.tres" id="2"]
+[ext_resource type="Texture2D" uid="uid://1bu46g6ikhps" path="res://Image/UI/FreebieUIBackground.png" id="3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lriq5"]
+texture = ExtResource("3")
+
+[resource]
+Button/styles/normal = ExtResource("1")
+Button/styles/pressed = ExtResource("2")
+Panel/styles/panel = SubResource("StyleBoxTexture_lriq5")

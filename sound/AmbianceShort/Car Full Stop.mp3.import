@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bysgn5e0vbbmo"
+path="res://.godot/imported/Car Full Stop.mp3-b4205939b0c823a4d381e6f2e4700a8b.mp3str"
+
+[deps]
+
+source_file="res://sound/AmbianceShort/Car Full Stop.mp3"
+dest_files=["res://.godot/imported/Car Full Stop.mp3-b4205939b0c823a4d381e6f2e4700a8b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

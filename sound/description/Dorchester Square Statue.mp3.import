@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sg5vhp0tpmw1"
+path="res://.godot/imported/Dorchester Square Statue.mp3-fe656679ef0475d8aa75a105ba64cf27.mp3str"
+
+[deps]
+
+source_file="res://sound/description/Dorchester Square Statue.mp3"
+dest_files=["res://.godot/imported/Dorchester Square Statue.mp3-fe656679ef0475d8aa75a105ba64cf27.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

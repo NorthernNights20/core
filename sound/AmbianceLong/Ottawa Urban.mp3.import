@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cecaahs3p7f1b"
+path="res://.godot/imported/Ottawa Urban.mp3-5b76d0640cb6ad7c6a2886a7f6a69d1f.mp3str"
+
+[deps]
+
+source_file="res://sound/AmbianceLong/Ottawa Urban.mp3"
+dest_files=["res://.godot/imported/Ottawa Urban.mp3-5b76d0640cb6ad7c6a2886a7f6a69d1f.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="WorldWriters"
+run/main_scene="uid://c5mjt2raln2ku"
+config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+PlayerData="*res://scripts/ui/PlayerData.gd"
+NetworkManager="*res://scripts/NetworkManager.gd"
+ZoneManager="*res://scene/Zone.tscn"
+GameManager="*res://scripts/GameManager.gd"
+MessagesManager="*res://scripts/message_manager.gd"
+SaveManager="*res://scripts/SaveManager.gd"
+MusicManager="*res://scripts/music_manager.gd"
+MessageWarningPlayer="*res://scripts/message_warning_player.tscn"
+VaulderieManager="*res://scripts/vaulderie_manager.gd"
+SettingsManager="*res://scripts/settings.gd"
+GroupManager="*res://scripts/GroupManager.gd"
+PostOrderManager="*res://scripts/PostOrderManager.gd"
+CalendarManager="*res://scripts/CalendarManager.gd"
+WakeUpManager="*res://scripts/WakeUpManager.gd"
+NightlyActivitiesManager="*res://scripts/NightlyActivitiesManager.gd"
+HuntScenarioManager="*res://scripts/HuntScenarioManager.gd"
+HuntManager="*res://scripts/HuntManager.gd"
+NoFocus="*res://scripts/NoFocus.gd"
+HealManager="*res://scripts/HealManager.gd"
+HerdManager="*res://scripts/HerdManager.gd"
+DisciplineManager="*res://scripts/DisciplineManager.gd"
+BloodBondsManager="*res://scripts/BloodBondManager.gd"
+MentorManager="*res://scripts/MentorManager.gd"
+InventoryManager="*res://scripts/InventoryManager.gd"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom_font="uid://bqadwipm5cllt"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

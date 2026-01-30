@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cgkfk8bfuen5"]
+
+[ext_resource type="StyleBox" uid="uid://dnw0ho45rjj3k" path="res://Image/UI/BorderUICC.tres" id="1"]
+
+[resource]
+Panel/styles/panel = ExtResource("1")

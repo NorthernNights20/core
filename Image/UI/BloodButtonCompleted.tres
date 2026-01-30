@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://c8otso07yd5di"]
+
+[ext_resource type="Texture2D" uid="uid://cm0avw8xek4e6" path="res://Image/UI/BloodDiamondButton.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://8aphmu02b2yh" path="res://Image/UI/BloodDiamondButtonPressed.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://rkqelb7pxat2" path="res://Image/UI/Leatherstrap.png" id="3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlrnn"]
+texture = ExtResource("1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npwxd"]
+texture = ExtResource("2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fivip"]
+texture = ExtResource("1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u6tdo"]
+texture = ExtResource("2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g08ba"]
+texture = ExtResource("1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_huy42"]
+texture = ExtResource("1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1wkw"]
+texture = ExtResource("1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n0esf"]
+texture = ExtResource("1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4adf7"]
+texture = ExtResource("2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ywhc"]
+texture = ExtResource("1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xs4l"]
+texture = ExtResource("3")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_xlrnn")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_npwxd")
+Button/styles/normal = SubResource("StyleBoxTexture_fivip")
+Button/styles/pressed = SubResource("StyleBoxTexture_u6tdo")
+TabBar/styles/tab_focus = SubResource("StyleBoxTexture_g08ba")
+TabBar/styles/tab_hovered = SubResource("StyleBoxTexture_huy42")
+TabBar/styles/tab_selected = SubResource("StyleBoxTexture_f1wkw")
+TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_n0esf")
+TabContainer/styles/tab_disabled = SubResource("StyleBoxTexture_4adf7")
+TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_0ywhc")
+TabContainer/styles/tab_unselected = null
+TabContainer/styles/tabbar_background = SubResource("StyleBoxTexture_1xs4l")

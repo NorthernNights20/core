@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://wrqrst8jlh1"]
+
+[ext_resource type="Script" uid="uid://8ow7dyjopnr1" path="res://scripts/message_warning_player.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://ev7r0sfgqney" path="res://sound/sounds/Jingle.mp3" id="2"]
+
+[node name="MessageWarningPlayer" type="Node"]
+script = ExtResource("1")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2")
+volume_db = -20.0
