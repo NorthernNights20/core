@@ -1,7 +1,7 @@
 on:
   push:
-    branches:
-      - master
+    tags:
+      - '*'
 
 name: Build Godot Project
 
@@ -75,12 +75,12 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Generate version tag
-        id: version
+      - name: Get tag name
+        id: tag
         run: |
-          VERSION="v$(date +'%Y.%m.%d')-${{ github.run_number }}"
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-          echo "Generated version: $VERSION"
+          TAG=${GITHUB_REF#refs/tags/}
+          echo "TAG=$TAG" >> $GITHUB_OUTPUT
+          echo "Tag: $TAG"
       
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -93,30 +93,31 @@ jobs:
       - name: Prepare release files
         run: |
           mkdir -p release-files
-          
-          # Linux Server
-          if [ -d "artifacts/Linux Server" ]; then
-            cp -r "artifacts/Linux Server/${EXPORT_NAME}" "release-files/${EXPORT_NAME}-linux-server"
-            chmod +x "release-files/${EXPORT_NAME}-linux-server"
-          fi
+          TAG="${{ steps.tag.outputs.TAG }}"
           
           # Linux Client
           if [ -d "artifacts/Linux Client" ]; then
-            cp -r "artifacts/Linux Client/${EXPORT_NAME}" "release-files/${EXPORT_NAME}-linux-client"
-            chmod +x "release-files/${EXPORT_NAME}-linux-client"
+            cp -r "artifacts/Linux Client/${EXPORT_NAME}" "release-files/NorthernNights${TAG}"
+            chmod +x "release-files/NorthernNights${TAG}"
+          fi
+          
+          # Linux Server
+          if [ -d "artifacts/Linux Server" ]; then
+            cp -r "artifacts/Linux Server/${EXPORT_NAME}" "release-files/NorthernNightsServer${TAG}"
+            chmod +x "release-files/NorthernNightsServer${TAG}"
           fi
           
           # Windows Client
           if [ -d "artifacts/Windows Client" ]; then
-            cp -r "artifacts/Windows Client/${EXPORT_NAME}.exe" "release-files/${EXPORT_NAME}-windows-client.exe"
+            cp -r "artifacts/Windows Client/${EXPORT_NAME}.exe" "release-files/NorthernNights${TAG}.exe"
           fi
           
           # macOS Client - .app è una cartella, quindi va zippata
           if [ -d "artifacts/macOS Client" ]; then
-            mkdir -p "temp-macos/${EXPORT_NAME}-macos-client.app"
-            cp -r "artifacts/macOS Client/"* "temp-macos/${EXPORT_NAME}-macos-client.app/"
+            mkdir -p "temp-macos/NorthernNights${TAG}.app"
+            cp -r "artifacts/macOS Client/"* "temp-macos/NorthernNights${TAG}.app/"
             cd temp-macos
-            zip -r "../release-files/${EXPORT_NAME}-macos-client.app.zip" "${EXPORT_NAME}-macos-client.app"
+            zip -r "../release-files/NorthernNights${TAG}.app.zip" "NorthernNights${TAG}.app"
             cd ..
             rm -rf temp-macos
             echo "macOS app zipped successfully"
@@ -127,18 +128,18 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.version.outputs.VERSION }}
-          name: Release ${{ steps.version.outputs.VERSION }}
+          tag_name: ${{ steps.tag.outputs.TAG }}
+          name: Release ${{ steps.tag.outputs.TAG }}
           body: |
-            ## WorldWriters Build - ${{ steps.version.outputs.VERSION }}
+            ## WorldWriters Build - ${{ steps.tag.outputs.TAG }}
             
             Automated build from commit ${{ github.sha }}
             
             ### Downloads
-            - **Linux Server**: `${{ env.EXPORT_NAME }}-linux-server`
-            - **Linux Client**: `${{ env.EXPORT_NAME }}-linux-client`
-            - **Windows Client**: `${{ env.EXPORT_NAME }}-windows-client.exe`
-            - **macOS Client**: `${{ env.EXPORT_NAME }}-macos-client.app.zip` (extract after download)
+            - **Linux Client**: `NorthernNights${{ steps.tag.outputs.TAG }}`
+            - **Linux Server**: `NorthernNightsServer${{ steps.tag.outputs.TAG }}`
+            - **Windows Client**: `NorthernNights${{ steps.tag.outputs.TAG }}.exe`
+            - **macOS Client**: `NorthernNights${{ steps.tag.outputs.TAG }}.app.zip` (extract after download)
             
             ### Installation
             1. Download the appropriate file for your platform
