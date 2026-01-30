@@ -62,3 +62,86 @@ jobs:
         with:
           name: ${{ matrix.platform }}
           path: build/${{ matrix.platform }}/${{ env.EXPORT_FILE }}
+  
+  create-release:
+    name: Create Release
+    needs: Godot
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Generate version tag
+        id: version
+        run: |
+          VERSION="v$(date +'%Y.%m.%d')-${{ github.run_number }}"
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Generated version: $VERSION"
+      
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      
+      - name: Display structure of downloaded files
+        run: ls -R artifacts
+      
+      - name: Prepare release files
+        run: |
+          mkdir -p release-files
+          
+          # Linux Server
+          if [ -d "artifacts/Linux Server" ]; then
+            cp -r "artifacts/Linux Server/${EXPORT_NAME}" "release-files/${EXPORT_NAME}-linux-server"
+            chmod +x "release-files/${EXPORT_NAME}-linux-server"
+          fi
+          
+          # Linux Client
+          if [ -d "artifacts/Linux Client" ]; then
+            cp -r "artifacts/Linux Client/${EXPORT_NAME}" "release-files/${EXPORT_NAME}-linux-client"
+            chmod +x "release-files/${EXPORT_NAME}-linux-client"
+          fi
+          
+          # Windows Client
+          if [ -d "artifacts/Windows Client" ]; then
+            cp -r "artifacts/Windows Client/${EXPORT_NAME}.exe" "release-files/${EXPORT_NAME}-windows-client.exe"
+          fi
+          
+          # macOS Client
+          if [ -d "artifacts/macOS Client" ]; then
+            cp -r "artifacts/macOS Client/${EXPORT_NAME}.app" "release-files/${EXPORT_NAME}-macos-client.app"
+          fi
+          
+          ls -lh release-files/
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.version.outputs.VERSION }}
+          name: Release ${{ steps.version.outputs.VERSION }}
+          body: |
+            ## WorldWriters Build - ${{ steps.version.outputs.VERSION }}
+            
+            Automated build from commit ${{ github.sha }}
+            
+            ### Downloads
+            - **Linux Server**: `${{ env.EXPORT_NAME }}-linux-server`
+            - **Linux Client**: `${{ env.EXPORT_NAME }}-linux-client`
+            - **Windows Client**: `${{ env.EXPORT_NAME }}-windows-client.exe`
+            - **macOS Client**: `${{ env.EXPORT_NAME }}-macos-client.app`
+            
+            ### Installation
+            1. Download the appropriate file for your platform
+            2. Extract if necessary
+            3. Run the executable
+            
+          draft: false
+          prerelease: false
+          files: |
+            release-files/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
