@@ -111,9 +111,12 @@ jobs:
             cp -r "artifacts/Windows Client/${EXPORT_NAME}.exe" "release-files/${EXPORT_NAME}-windows-client.exe"
           fi
           
-          # macOS Client
-          if [ -d "artifacts/macOS Client" ]; then
-            cp -r "artifacts/macOS Client/${EXPORT_NAME}.app" "release-files/${EXPORT_NAME}-macos-client.app"
+          # macOS Client - .app è una cartella, quindi va zippata
+          if [ -d "artifacts/macOS Client/${EXPORT_NAME}.app" ]; then
+            cd "artifacts/macOS Client"
+            zip -r "../../release-files/${EXPORT_NAME}-macos-client.app.zip" "${EXPORT_NAME}.app"
+            cd ../..
+            echo "macOS app zipped successfully"
           fi
           
           ls -lh release-files/
@@ -132,12 +135,13 @@ jobs:
             - **Linux Server**: `${{ env.EXPORT_NAME }}-linux-server`
             - **Linux Client**: `${{ env.EXPORT_NAME }}-linux-client`
             - **Windows Client**: `${{ env.EXPORT_NAME }}-windows-client.exe`
-            - **macOS Client**: `${{ env.EXPORT_NAME }}-macos-client.app`
+            - **macOS Client**: `${{ env.EXPORT_NAME }}-macos-client.app.zip` (extract after download)
             
             ### Installation
             1. Download the appropriate file for your platform
-            2. Extract if necessary
-            3. Run the executable
+            2. For macOS: Extract the .zip file and run the .app bundle
+            3. For other platforms: Run the executable directly
+            
             
           draft: false
           prerelease: false
