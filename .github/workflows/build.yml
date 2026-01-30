@@ -112,10 +112,13 @@ jobs:
           fi
           
           # macOS Client - .app è una cartella, quindi va zippata
-          if [ -d "artifacts/macOS Client/${EXPORT_NAME}.app" ]; then
-            cd "artifacts/macOS Client"
-            zip -r "../../release-files/${EXPORT_NAME}-macos-client.app.zip" "${EXPORT_NAME}.app"
-            cd ../..
+          if [ -d "artifacts/macOS Client" ]; then
+            mkdir -p "temp-macos/${EXPORT_NAME}-macos-client.app"
+            cp -r "artifacts/macOS Client/"* "temp-macos/${EXPORT_NAME}-macos-client.app/"
+            cd temp-macos
+            zip -r "../release-files/${EXPORT_NAME}-macos-client.app.zip" "${EXPORT_NAME}-macos-client.app"
+            cd ..
+            rm -rf temp-macos
             echo "macOS app zipped successfully"
           fi
           
